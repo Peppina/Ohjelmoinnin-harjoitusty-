@@ -21,31 +21,36 @@ public class Pelilauta {
         
     }
     
-    //metodi palauttaa tasolla x olevien objektien y-arvon
-    public int haeObjektienPaikatPaikassaX(int xArvo){
-        int n = 0;
-        int pituus = this.liikutettavatObjektit.size();
-        int palautus = 0;
-        while (n < pituus){
-            Liikutettava liikutettava = this.liikutettavatObjektit.get(n);
-            if (liikutettava.haePaikkaX() == xArvo){
-                palautus = liikutettava.haePaikkaY();
-            } else {
-                n++;
-            }
-            
-        }
-        
-        return palautus;
-        
+    public void lisaaObjekti(Liikutettava liikutettava){
+        this.liikutettavatObjektit.add(liikutettava);
     }
     
     
-    //metodi vertaa törmäävätkö pelaaja ja objekti
+    //metodi vertaa törmäävätkö pelaaja ja laudalla olevat objektit, jos törmäys tapahtuu on palautusarvo true
     
-   public boolean onkoSamaYKordinaatti(Pelaaja pelaaja, Liikutettava liikutettava){
+   public boolean tuleekoTormaus(){
+       int i = 0;
+       int lukumaara = this.liikutettavatObjektit.size();
+       boolean palautus = false;
        
+       while(i < lukumaara){
+           Liikutettava verrattava = this.liikutettavatObjektit.get(i);
+           if(verrattava.haePaikkaX() == this.pelaaja.annaPelaajanXPaikka() && verrattava.haePaikkaY() == this.pelaaja.annaPelaajanYPaikka()){
+               palautus = true;
+           } else  {
+               i++;
+           }
+           
+       }
+       
+       return palautus;
+   
+      }
+   
+   
+   
+   
        
    }
     
-}
+

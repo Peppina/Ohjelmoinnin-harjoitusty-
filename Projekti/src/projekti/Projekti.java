@@ -1,19 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projekti;
 
-/**
- *
- * @author papepa
- */
+
 public class Projekti {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Pelaaja antti = new Pelaaja("Antti");
+        System.out.println(antti);
+        antti.kasvataPisteitä(2);
+        System.out.println(antti);
+        
+        
+        Pelilauta lauta = new Pelilauta(antti);
+        System.out.println(lauta.haeObjektienPaikatPaikassaX(2));
+        
+        Liikutettava o = new VaistettavaObjekti( 2, 3);
+        
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+
+        
+        
     }
+    
+    
 }

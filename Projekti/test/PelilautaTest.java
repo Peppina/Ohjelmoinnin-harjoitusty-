@@ -48,6 +48,12 @@ public class PelilautaTest {
         assertEquals("(1, 2)(1, 3)", pelilauta.annaObjektienPaikat());
     }
     
+    @Test
+    public void toimiikoKonstruktoriOikein(){
+        assertEquals("Laudalla on yksi pelaa: pelaaja ja laudan koko on 14*10.", pelilauta.toString());
+        
+        
+    }
     
     
     

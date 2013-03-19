@@ -17,21 +17,20 @@ public class Peli {
     }
     
     public void ohjeet(){
-        System.out.println("Tässä pelin ohjeet");
+        System.out.println("Pelaajaa liikutetaan näppäimillä 2 (alas), 6(sivulle) ja 8(ylös). Tarkoituksena on väistää ylös-alas liikkuvia esineitä.");
     }
     
-    public void aloitaPeli(){
+    
+    //Pelaa metodi luo jokaisella pelikerralla vaihtelevan määrän vaistettavia objekteja. Metodi suoritus loppuu, kun pelaaja ja objekti törmäävät tai pelöaaja saavuttaa paikan x= 14.
+    
+    public void pelaa(){
+        
         System.out.println("Anna nimesi: ");
         Scanner lukija = new Scanner(System.in);
         String nimi = lukija.nextLine();
         Pelaaja pelaaja = new Pelaaja(nimi);
         Pelilauta pelilauta = new Pelilauta(pelaaja);
         
-    }
-    
-    //Pelaa metodi luo jokaisella pelikerralla vaihtelevan määrän vaistettavia objekteja. Metodi suoritus loppuu, kun pelaaja ja objekti törmäävät tai pelöaaja saavuttaa paikan x= 14.
-    
-    public void pelaa(Pelilauta pelilauta, Pelaaja pelaaja){
         
         Random arpoja = new Random ();
         int vaistettavienMaara = arpoja.nextInt(4);
@@ -44,10 +43,14 @@ public class Peli {
             pelilauta.lisaaObjekti(liikutettava);
         }
         
-        while(pelilauta.tuleekoTormaus() == false){
+        while(pelilauta.tuleekoTormaus() == false && pelaaja.annaPelaajanXPaikka() < 14){
+            
+            pelilauta.liikutaPelaajaaJaPelilautaa();
             
             
         }
+        
+        System.out.println("peli loppui");
         
         
         

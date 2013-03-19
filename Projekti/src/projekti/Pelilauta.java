@@ -21,6 +21,8 @@ public class Pelilauta {
         
     }
     
+    
+    
     public void lisaaObjekti(Liikutettava liikutettava){
         this.liikutettavatObjektit.add(liikutettava);
     }
@@ -75,7 +77,31 @@ public class Pelilauta {
       }
        
        
+      
+      
    }
+   
+    public void liikutaPelaajaaJaPelilautaa(){
+       Nappaimisto nappaimisto = new Nappaimisto();
+       int kasky = nappaimisto.kasky();
+       
+       if(kasky == 2){
+           pelaaja.liikutaPelaajaaYsuunnassaAlaspain();
+           this.liikutaPelilauttaaKerran();
+       } if (kasky == 8){
+           pelaaja.liikutaPelaajaaYsuunnassaYlospain();
+           this.liikutaPelilauttaaKerran();
+       } if (kasky == 6) {
+           pelaaja.liikutaPelaajaaXsuunnassa();
+           this.liikutaPelilauttaaKerran();
+       }
+       
+    }
+    
+    
+    public String toString(){
+        return "Laudalla on yksi pelaa: " + this.pelaaja.annaPelaajaNimi() + " ja laudan koko on 14*10.";
+    }
    
    
    

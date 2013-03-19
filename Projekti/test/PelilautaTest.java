@@ -9,34 +9,46 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import projekti.Liikutettava;
+import projekti.Pelaaja;
+import projekti.Pelilauta;
+import projekti.VaistettavaObjekti;
 /**
  *
  * @author papepa
  */
 public class PelilautaTest {
     
-    public PelilautaTest() {
-    }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    Pelilauta pelilauta;
     
     @Before
     public void setUp() {
+        
+       Pelaaja pelaaja = new Pelaaja("pelaaja");
+       pelilauta = new Pelilauta(pelaaja);
+       Liikutettava liikutettava = new VaistettavaObjekti(1,1);
+       Liikutettava liikutettava2 = new VaistettavaObjekti(1,2);
+       pelilauta.lisaaObjekti(liikutettava);
+       pelilauta.lisaaObjekti(liikutettava2);
+        
+        
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void toimiikoLisausOikein(){
+        assertEquals("(1, 1)(1, 2)", pelilauta.annaObjektienPaikat() );
+        
+
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test 
+    public void toimiikoPelilaudanLiikutusOiekin(){
+        pelilauta.liikutaPelilauttaaKerran();
+        assertEquals("(1, 2)(1, 3)", pelilauta.annaObjektienPaikat());
+    }
+    
+    
+    
+    
 }

@@ -46,6 +46,37 @@ public class PelaajaTest {
       assertEquals("pelaaja", pelaaja.annaPelaajaNimi());
       
   }
+  
+  @Test
+  public void pisteidenKasvatusToimii(){
+      pelaaja.kasvataPisteitä(2);
+      
+      assertEquals(2, pelaaja.annaPelaajanPisteet());
+  }
+  
+  @Test
+  public void pelaajanLiikuttaminenToimiiYsuunnassa(){
+      pelaaja.liikutaPelaajaaYsuunnassaAlaspain();
+      pelaaja.liikutaPelaajaaYsuunnassaAlaspain();
+      pelaaja.liikutaPelaajaaYsuunnassaYlospain();
+      
+      assertEquals(6,pelaaja.annaPelaajanYPaikka());
+  }
+  
+  @Test
+  public void pelaajanLiikuttaminenXsuunnassaToimii(){
+      pelaaja.liikutaPelaajaaXsuunnassa();
+      pelaaja.liikutaPelaajaaXsuunnassa();
+      assertEquals(2, pelaaja.annaPelaajanXPaikka());
+  }
+  
+  @Test
+  public void toStringtoimiiOikein(){
+      
+      assertEquals("Pelaajan pelaaja pisteet: 0", pelaaja.toString());
+      
+  }
+  
     
     
 }

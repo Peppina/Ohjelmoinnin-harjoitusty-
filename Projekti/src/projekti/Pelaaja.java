@@ -41,8 +41,12 @@ public class Pelaaja {
         return this.paikkaY;
     }
     
-    public void liikutaPelaajaaYsuunnassa(){
+    public void liikutaPelaajaaYsuunnassaYlospain(){
         this.paikkaY = this.paikkaY + 1;
+    }
+    
+    public void liikutaPelaajaaYsuunnassaAlaspain(){
+        this.paikkaY = this.paikkaY - 1;
     }
     
     public void liikutaPelaajaaXsuunnassa(){

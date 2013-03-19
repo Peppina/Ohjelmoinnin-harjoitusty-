@@ -14,7 +14,6 @@ public class Projekti {
         
         
         Pelilauta lauta = new Pelilauta(antti);
-        System.out.println(lauta.haeObjektienPaikatPaikassaX(2));
         
         Liikutettava o = new VaistettavaObjekti( 2, 3);
         
@@ -42,8 +41,54 @@ public class Projekti {
           System.out.println(o.haePaikkaY());
         o.liikuta();
           System.out.println(o.haePaikkaY());
+          o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
+        o.liikuta();
+          System.out.println(o.haePaikkaY());
 
+        Pelilauta pelilauta = new Pelilauta(antti);
+          
+        Liikutettava liikutettava = new VaistettavaObjekti(1,1);
+        Liikutettava liikutettava2 = new VaistettavaObjekti(1,2);
+        pelilauta.lisaaObjekti(liikutettava);
+        pelilauta.lisaaObjekti(liikutettava2);
         
+        pelilauta.annaObjektienPaikat();
+        pelilauta.tulostaObjektienPaikat();
+        
+        pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+        
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
+         pelilauta.liikutaPelilauttaaKerran();
+        pelilauta.tulostaObjektienPaikat();
         
     }
     

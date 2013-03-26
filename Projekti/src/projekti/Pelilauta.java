@@ -85,10 +85,10 @@ public class Pelilauta {
        Nappaimisto nappaimisto = new Nappaimisto();
        int kasky = nappaimisto.kasky();
        
-       if(kasky == 2){
+       if(kasky == 2 && pelaaja.annaPelaajanYPaikka() != 0){
            pelaaja.liikutaPelaajaaYsuunnassaAlaspain();
            this.liikutaPelilauttaaKerran();
-       } if (kasky == 8){
+       } if (kasky == 8 && pelaaja.annaPelaajanYPaikka() != 10){
            pelaaja.liikutaPelaajaaYsuunnassaYlospain();
            this.liikutaPelilauttaaKerran();
        } if (kasky == 6) {

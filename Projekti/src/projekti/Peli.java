@@ -20,33 +20,45 @@ public class Peli {
         System.out.println("Pelaajaa liikutetaan näppäimillä 2 (alas), 6(sivulle) ja 8(ylös). Tarkoituksena on väistää ylös-alas liikkuvia esineitä.");
     }
     
-    
-    //Pelaa metodi luo jokaisella pelikerralla vaihtelevan määrän vaistettavia objekteja. Metodi suoritus loppuu, kun pelaaja ja objekti törmäävät tai pelöaaja saavuttaa paikan x= 14.
-    
-    public void pelaa(){
-        
+    public Pelaaja luoPelaaja(){
         System.out.println("Anna nimesi: ");
         Scanner lukija = new Scanner(System.in);
         String nimi = lukija.nextLine();
         Pelaaja pelaaja = new Pelaaja(nimi);
-        Pelilauta pelilauta = new Pelilauta(pelaaja);
-        
-        
-        Random arpoja = new Random ();
-        int vaistettavienMaara = arpoja.nextInt(4);
-        int i = 0;
+        return pelaaja;
+    }
+    
+    
+    
+   public Pelilauta luoPelilauta(){
+       Pelaaja pelaaja = this.luoPelaaja();
+       Pelilauta pelilauta = new Pelilauta(pelaaja);
+       int vaistettavienMaara = 3;
+       int i = 0;
         
         while( i < vaistettavienMaara){
-            int x = arpoja.nextInt(14);
-            int y = arpoja.nextInt(10);
+            Random arpo = new Random ();
+            int x = arpo.nextInt(7) * 100;
+            int y = arpo.nextInt(5) * 100;
             Liikutettava liikutettava = new VaistettavaObjekti(x,y);
             pelilauta.lisaaObjekti(liikutettava);
+            i++;
         }
+       return pelilauta;
+   }
+    
+    public void pelaa(){
         
-        while(pelilauta.tuleekoTormaus() == false && pelaaja.annaPelaajanXPaikka() < 14){
+       
+       Pelilauta pelilauta = this.luoPelilauta();
+       Pelaaja pelaaja = pelilauta.annaPelaaja();
+       Kayttoliittyma kayttis = new Kayttoliittyma(pelilauta);
+    kayttis.run();
+        
+        while(pelilauta.tuleekoTormaus() == false && pelaaja.annaPelaajanXPaikka() < 700){
             
             pelilauta.liikutaPelaajaaJaPelilautaa();
-            
+            System.out.println(pelilauta.annaObjektienPaikat());
             
         }
         

@@ -17,22 +17,22 @@ public class VaistettavaObjekti implements Liikutettava{
 
     @Override
     public void liikuta() {
-        if (paikkaY >= 0 && paikkaY <= 9 && suunta == true){
-            this.paikkaY = this.paikkaY + 1;
+        if (paikkaY >= 0 && paikkaY < 500 && suunta == true){
+            this.paikkaY = this.paikkaY + 50;
         }
         
-        else if (this.paikkaY == 10){
+        else if (this.paikkaY == 500){
             this.suunta = false;
-            this.paikkaY = this.paikkaY -1 ;
+            this.paikkaY = this.paikkaY -50 ;
         }
         
-        else if (this.paikkaY <= 9 && this.paikkaY > 0 && this.suunta == false){
-            this.paikkaY = this.paikkaY - 1;
+        else if (this.paikkaY <= 500 && this.paikkaY > 0 && this.suunta == false){
+            this.paikkaY = this.paikkaY - 50;
         }
         
         else if(this.paikkaY == 0 && this.suunta == false){
             this.suunta = true;
-            this.paikkaY = this.paikkaY + 1;
+            this.paikkaY = this.paikkaY + 50;
         }
        
     }

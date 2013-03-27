@@ -14,7 +14,7 @@ public class Pelaaja {
         this.nimi = annettuNimi;
         this.pisteet = 0;
         this.paikkaX = 0;
-        this.paikkaY = 7;
+        this.paikkaY = 250;
     }
     
     public void kasvataPisteitä(int luku){
@@ -42,16 +42,16 @@ public class Pelaaja {
     }
     
     public void liikutaPelaajaaYsuunnassaYlospain(){
-        this.paikkaY = this.paikkaY + 1;
+        this.paikkaY = this.paikkaY - 50;
         
     }
     
     public void liikutaPelaajaaYsuunnassaAlaspain(){
-        this.paikkaY = this.paikkaY - 1;
+        this.paikkaY = this.paikkaY + 50;
     }
     
     public void liikutaPelaajaaXsuunnassa(){
-        this.paikkaX = this.paikkaX + 1;
+        this.paikkaX = this.paikkaX + 50;
     }
     
     

@@ -11,20 +11,31 @@ public class Pelilauta {
     private int korkeus;
     private int leveys;
     private Pelaaja pelaaja;
+
     
     
     public Pelilauta(Pelaaja annettuPelaaja){
         this.liikutettavatObjektit = new ArrayList<Liikutettava>(); 
-        this.korkeus = 10;
-        this.leveys = 14;
+        this.korkeus = 500;
+        this.leveys = 700;
         this.pelaaja = annettuPelaaja;
         
     }
     
-    
+    public Pelaaja annaPelaaja(){
+        return this.pelaaja;
+    }
     
     public void lisaaObjekti(Liikutettava liikutettava){
         this.liikutettavatObjektit.add(liikutettava);
+    }
+    
+    public int pelilaudanObjektienMaara(){
+       return this.liikutettavatObjektit.size();
+    }
+    
+    public Liikutettava annaLiikutettavaListalta(int i){
+        return this.liikutettavatObjektit.get(i);
     }
     
     public String annaObjektienPaikat(){

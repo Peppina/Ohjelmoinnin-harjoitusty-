@@ -13,10 +13,13 @@ import javax.swing.WindowConstants;
 public class Kayttoliittyma implements Runnable {
     
     private JFrame frame;
-    Grafiikka grafiikka;
+    private Pelilauta lauta;
 
-    public Kayttoliittyma() {
+    public Kayttoliittyma(Pelilauta peli) {
+        this.lauta = peli;
+        
     }
+
 
     @Override
     public void run() {
@@ -26,17 +29,20 @@ public class Kayttoliittyma implements Runnable {
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
-            frame.add(new KuvaJPanel());
+            frame.add(new KuvaJPanel(lauta));
+
         } catch (IOException ex) {
             Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
         }
+  
+        
 
         luoKomponentit(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
         
-        
+
         
        
         
@@ -44,11 +50,15 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
+                
+
+
     }
 
     public JFrame getFrame() {
         return frame;
     }
+
     
     
 }

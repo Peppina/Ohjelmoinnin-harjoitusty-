@@ -18,21 +18,21 @@ public class VaistettavaObjekti implements Liikutettava{
     @Override
     public void liikuta() {
         if (paikkaY >= 0 && paikkaY < 500 && suunta == true){
-            this.paikkaY = this.paikkaY + 50;
+            this.paikkaY = this.paikkaY + 5;
         }
         
         else if (this.paikkaY == 500){
             this.suunta = false;
-            this.paikkaY = this.paikkaY -50 ;
+            this.paikkaY = this.paikkaY -10 ;
         }
         
         else if (this.paikkaY <= 500 && this.paikkaY > 0 && this.suunta == false){
-            this.paikkaY = this.paikkaY - 50;
+            this.paikkaY = this.paikkaY - 10;
         }
         
         else if(this.paikkaY == 0 && this.suunta == false){
             this.suunta = true;
-            this.paikkaY = this.paikkaY + 50;
+            this.paikkaY = this.paikkaY + 10;
         }
        
     }

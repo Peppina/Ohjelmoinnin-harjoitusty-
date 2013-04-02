@@ -1,8 +1,11 @@
 
 package projekti;
 
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Pelilauta {
@@ -19,6 +22,7 @@ public class Pelilauta {
         this.korkeus = 500;
         this.leveys = 700;
         this.pelaaja = annettuPelaaja;
+        
         
     }
     
@@ -81,30 +85,33 @@ public class Pelilauta {
    public void liikutaPelilauttaaKerran(){
       int i = 0;
       int objektit = this.liikutettavatObjektit.size();
+      
      
       while(i < objektit){
           this.liikutettavatObjektit.get(i).liikuta();
           i++;
       }
-       
-       
       
+  
       
    }
    
-    public void liikutaPelaajaaJaPelilautaa(){
+       
+   
+   
+   
+   
+    public void liikutaPelaajaa(){
        Nappaimisto nappaimisto = new Nappaimisto();
        int kasky = nappaimisto.kasky();
        
+       
        if(kasky == 2 && pelaaja.annaPelaajanYPaikka() != 0){
            pelaaja.liikutaPelaajaaYsuunnassaAlaspain();
-           this.liikutaPelilauttaaKerran();
        } if (kasky == 8 && pelaaja.annaPelaajanYPaikka() != 10){
            pelaaja.liikutaPelaajaaYsuunnassaYlospain();
-           this.liikutaPelilauttaaKerran();
        } if (kasky == 6) {
            pelaaja.liikutaPelaajaaXsuunnassa();
-           this.liikutaPelilauttaaKerran();
        }
        
     }

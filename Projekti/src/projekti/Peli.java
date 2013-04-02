@@ -3,6 +3,7 @@ package projekti;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Timer;
 
 public class Peli {
     
@@ -38,8 +39,8 @@ public class Peli {
         
         while( i < vaistettavienMaara){
             Random arpo = new Random ();
-            int x = arpo.nextInt(7) * 100;
-            int y = arpo.nextInt(5) * 100;
+            int x = (arpo.nextInt(6) + 1) * 100;
+            int y = arpo.nextInt(4) * 100;
             Liikutettava liikutettava = new VaistettavaObjekti(x,y);
             pelilauta.lisaaObjekti(liikutettava);
             i++;
@@ -49,15 +50,24 @@ public class Peli {
     
     public void pelaa(){
         
+       this.ohjeet();
        
        Pelilauta pelilauta = this.luoPelilauta();
        Pelaaja pelaaja = pelilauta.annaPelaaja();
+       
        Kayttoliittyma kayttis = new Kayttoliittyma(pelilauta);
-    kayttis.run();
+       kayttis.run();
+       
+       Timer ajastin = new Timer();
+       timertask teht = new timertask(pelilauta);
+       ajastin.schedule(teht, 0, 50);
+       
         
         while(pelilauta.tuleekoTormaus() == false && pelaaja.annaPelaajanXPaikka() < 700){
             
-            pelilauta.liikutaPelaajaaJaPelilautaa();
+
+ 
+            pelilauta.liikutaPelaajaa();
             System.out.println(pelilauta.annaObjektienPaikat());
             
         }
@@ -68,6 +78,8 @@ public class Peli {
         
         
     }
+    
+    
 
    
         

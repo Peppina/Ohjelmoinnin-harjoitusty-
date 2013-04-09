@@ -1,6 +1,6 @@
-
 package projekti;
 
+import Grafiikka.KuvaJPanel;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -11,21 +11,24 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 public class Kayttoliittyma implements Runnable {
-    
+
     private JFrame frame;
     private Pelilauta lauta;
 
     public Kayttoliittyma(Pelilauta peli) {
         this.lauta = peli;
-        
+
     }
 
-
+    /**
+     * Metodi luo ikkunan ja sen komponentit metodin luoKomponentit() avulla
+     *
+     */
     @Override
     public void run() {
         frame = new JFrame("Vaistelupeli");
         frame.setPreferredSize(new Dimension(700, 500));
-        
+
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
@@ -34,23 +37,28 @@ public class Kayttoliittyma implements Runnable {
         } catch (IOException ex) {
             Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
-        
+
+
 
         luoKomponentit(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
-        
 
-        
-       
-        
-        
+
+
+
+
+
     }
 
+    /**
+     * Metodi lisää KeyListener komponentin kayttoliittymaan
+     *
+     */
     private void luoKomponentit(Container container) {
-                
+        frame.addKeyListener(new Kuuntelija(this.lauta));
+
 
 
     }
@@ -58,7 +66,4 @@ public class Kayttoliittyma implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
-
-    
-    
 }

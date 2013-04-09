@@ -10,24 +10,25 @@ import java.util.TimerTask;
  *
  * @author papepa
  */
-public class timertask extends TimerTask{
-    
+public class timertask extends TimerTask {
+
     private Pelilauta lauta;
-    
-    public timertask(Pelilauta annettu){
+
+    public timertask(Pelilauta annettu) {
         this.lauta = annettu;
     }
     
-    @Override
-    public void run(){
-        if (this.lauta.tuleekoTormaus() == false){
-        this.lauta.liikutaPelilauttaaKerran();
-        }
-        else { System.out.println("peli loppui");
-    }
-    }
-    
-}
-    
-    
+    /**
+     * ajastin tehtävä, liikuttaa pelilautaa kerran annetussa ajanjaksossa.
+     * @see Pelilauta
+     */
 
+    @Override
+    public void run() {
+        if (this.lauta.tuleekoTormaus() == false) {
+            this.lauta.liikutaPelilauttaaKerran();
+        } else {
+            System.out.println("peli loppui");
+        }
+    }
+}

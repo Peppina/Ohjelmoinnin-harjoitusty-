@@ -5,6 +5,7 @@ public class VaistettavaObjekti implements Liikutettava {
     private int paikkaX;
     private int paikkaY;
     private boolean suunta;
+    final private int KAPPALEEN_NOPEUS = 10;
 
     /**
      * VaistettavaObjekti on Liikutettava rajapinnan toteuttava luokka.
@@ -26,18 +27,23 @@ public class VaistettavaObjekti implements Liikutettava {
 
     @Override
     public void liikuta() {
-        if (paikkaY >= 0 && paikkaY < 500 && suunta == true) {
-            this.paikkaY = this.paikkaY + 10;
-        } else if (this.paikkaY == 500) {
-            this.suunta = false;
-            this.paikkaY = this.paikkaY - 10;
-        } else if (this.paikkaY <= 500 && this.paikkaY > 0 && this.suunta == false) {
-            this.paikkaY = this.paikkaY - 10;
-        } else if (this.paikkaY == 0 && this.suunta == false) {
-            this.suunta = true;
-            this.paikkaY = this.paikkaY + 10;
+        
+        if(this.suunta) {
+            if(paikkaY + KAPPALEEN_NOPEUS <= 475) {
+                paikkaY += KAPPALEEN_NOPEUS;
+            }
+            else {
+                this.suunta = false;
+            }
         }
-
+        if(!this.suunta) {
+            if(paikkaY - KAPPALEEN_NOPEUS >= 0) {
+                paikkaY -= KAPPALEEN_NOPEUS;
+            }
+            else {
+                this.suunta = true;
+            }
+        }
     }
 
     @Override

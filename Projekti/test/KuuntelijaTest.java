@@ -30,7 +30,7 @@ public class KuuntelijaTest {
 
     @Test
     public void kuuntelijaKuuntelee() {
-        Pelaaja pelaaja = new Pelaaja("pelaaja");
+        Pelaaja pelaaja = new Pelaaja();
         Pelilauta pelilauta = new Pelilauta(pelaaja);
 
         Kuuntelija kuuntelija = new Kuuntelija(pelilauta);

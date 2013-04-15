@@ -47,6 +47,11 @@ public class Kuuntelija implements KeyListener {
         if (key == KeyEvent.VK_UP) {
             this.peli.liikutaPelaajaa(8);
         }
+        
+        if (key == KeyEvent.VK_LEFT){
+            this.peli.liikutaPelaajaa(4);
+            
+        }
     }
 
     @Override

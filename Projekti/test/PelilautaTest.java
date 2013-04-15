@@ -25,7 +25,7 @@ public class PelilautaTest {
     @Before
     public void setUp() {
 
-        Pelaaja pelaaja = new Pelaaja("pelaaja");
+        Pelaaja pelaaja = new Pelaaja();
         pelilauta = new Pelilauta(pelaaja);
         Liikutettava liikutettava = new VaistettavaObjekti(1, 1);
         Liikutettava liikutettava2 = new VaistettavaObjekti(1, 2);

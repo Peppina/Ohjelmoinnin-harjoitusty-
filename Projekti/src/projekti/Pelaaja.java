@@ -16,8 +16,8 @@ public class Pelaaja {
      *
      * @param annettuNimi
      */
-    public Pelaaja(String annettuNimi) {
-        this.nimi = annettuNimi;
+    public Pelaaja() {
+
         this.pisteet = 0;
         this.paikkaX = 0;
         this.paikkaY = 250;
@@ -42,21 +42,12 @@ public class Pelaaja {
     }
 
     /**
-     * Palauttaa pelaajan nimen
-     *
-     * @return
-     */
-    public String annaPelaajaNimi() {
-        return this.nimi;
-    }
-
-    /**
      * Palauttaa pelaajan tekstiesityksen
      *
      * @return
      */
     public String toString() {
-        return "Pelaajan " + this.nimi + " pisteet: " + this.pisteet;
+        return "Pelaajan pisteet: " + this.pisteet;
     }
 
     /**
@@ -99,6 +90,12 @@ public class Pelaaja {
      * yhden askeleen verran
      */
     public void liikutaPelaajaaXsuunnassa() {
-        this.paikkaX = this.paikkaX + 50;
+        if (this.annaPelaajanXPaikka() < 750) {
+            this.paikkaX = this.paikkaX + 50;
+        }
+    }
+
+    public void liikutaPelaajaaXsuunnassaTaakse() {
+        this.paikkaX = this.paikkaX - 50;
     }
 }

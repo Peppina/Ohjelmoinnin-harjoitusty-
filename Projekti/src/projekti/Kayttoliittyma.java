@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class Kayttoliittyma implements Runnable {
+public class Kayttoliittyma {
 
     private JFrame frame;
     private Pelilauta lauta;
@@ -24,31 +24,26 @@ public class Kayttoliittyma implements Runnable {
      * Metodi luo ikkunan ja sen komponentit metodin luoKomponentit() avulla
      *
      */
-    @Override
-    public void run() {
+    public void rakenna() {
+
         frame = new JFrame("Vaistelupeli");
-        frame.setPreferredSize(new Dimension(700, 500));
+        frame.setPreferredSize(new Dimension(700, 520));
 
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        try {
-            frame.add(new KuvaJPanel(lauta));
-
-        } catch (IOException ex) {
-            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
 
+        System.out.println("rakennan");
+
+
+        KuvaJPanel kuva = new KuvaJPanel(lauta);
+        frame.add(kuva);
+        kuva.repaint();
 
         luoKomponentit(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
-
-
-
-
-
 
     }
 
@@ -58,8 +53,6 @@ public class Kayttoliittyma implements Runnable {
      */
     private void luoKomponentit(Container container) {
         frame.addKeyListener(new Kuuntelija(this.lauta));
-
-
 
     }
 

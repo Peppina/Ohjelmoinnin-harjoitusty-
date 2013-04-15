@@ -1,35 +1,20 @@
 package projekti;
 
-import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.Timer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Peli {
 
-    public Peli() {
-    }
+    final private int PELIN_NOPEUS = 1000 / 25;
+    private Kayttoliittyma kayttis;
+    private Pelilauta lauta;
 
-    public String aloitusTeksti() {
-        return "tervetuloa pelin pariin!";
+    public Peli(Pelaaja pelaaja) {
 
-    }
+        this.lauta = this.luoPelilauta(pelaaja);
+        this.kayttis = new Kayttoliittyma(lauta);
 
-    public void ohjeet() {
-        System.out.println("Pelaajaa liikutetaan näppäimillä 2 (alas), 6(sivulle) ja 8(ylös). Tarkoituksena on väistää ylös-alas liikkuvia esineitä.");
-    }
-
-    /**
-     * metodi luo uuden pelaaja annetun nimen perusteella
-     *
-     * @return pelaaja
-     */
-    public Pelaaja luoPelaaja() {
-        System.out.println("Anna nimesi: ");
-        Scanner lukija = new Scanner(System.in);
-        String nimi = lukija.nextLine();
-        Pelaaja pelaaja = new Pelaaja(nimi);
-        return pelaaja;
     }
 
     /**
@@ -41,7 +26,7 @@ public class Peli {
      * @return Pelilauta
      */
     public Pelilauta luoPelilauta(Pelaaja pelaaja) {
-        Pelilauta pelilauta = new Pelilauta(pelaaja);
+        Pelilauta uusiPelilauta = new Pelilauta(pelaaja);
         int vaistettavienMaara = 3;
         int i = 0;
 
@@ -50,10 +35,10 @@ public class Peli {
             int x = (arpo.nextInt(6) + 1) * 100;
             int y = arpo.nextInt(4) * 100;
             Liikutettava liikutettava = new VaistettavaObjekti(x, y);
-            pelilauta.lisaaObjekti(liikutettava);
+            uusiPelilauta.lisaaObjekti(liikutettava);
             i++;
         }
-        return pelilauta;
+        return uusiPelilauta;
     }
 
     /**
@@ -64,27 +49,46 @@ public class Peli {
      * @see
      */
     public void pelaa() {
-        System.out.println(this.aloitusTeksti());
-        this.ohjeet();
-        
-        Pelaaja pelaaja = this.luoPelaaja();
-        Pelilauta pelilauta = this.luoPelilauta(pelaaja);
-
-        Kayttoliittyma kayttis = new Kayttoliittyma(pelilauta);
-        kayttis.run();
-
-        Timer ajastin = new Timer();
-        timertask teht = new timertask(pelilauta);
-        ajastin.schedule(teht, 0, 50);
+        this.run();
 
 
-        while (pelilauta.tuleekoTormaus() == false && pelaaja.annaPelaajanXPaikka() < 700) {
+
+    }
+
+    public void run() {
+        kayttis.rakenna();
+        this.lauta.muutaPelinSatusta(1);
+        while (true) {
+            paivitaPeli();
+            try {
+                Thread.sleep(PELIN_NOPEUS);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Peli.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (this.lauta.tuleekoTormaus()) {
+                System.out.println("loppu");
+                this.lauta.muutaPelinSatusta(2);
+                System.out.println(lauta.annaPelinStatus());
+                break;
+            }
+            if (this.lauta.annaPelaaja().annaPelaajanXPaikka() == 700) {
+                System.out.println("loppu");
+                this.lauta.muutaPelinSatusta(3);
+                System.out.println(lauta.annaPelinStatus());
+                break;
+            }
         }
+    }
 
-        System.out.println("peli loppui");
+    private void paivitaPeli() {
+        if (lauta.tuleekoTormaus() == false) {
+            lauta.liikutaPelilauttaaKerran();
+        } else {
+            lauta.liikutaPelilauttaaKerran();
+        }
+    }
 
-
-
-
+    public int pelinStatus() {
+        return lauta.annaPelinStatus();
     }
 }

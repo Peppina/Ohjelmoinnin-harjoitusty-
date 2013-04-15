@@ -21,7 +21,7 @@ public class PelaajaTest {
 
     @Before
     public void setUp() {
-        pelaaja = new Pelaaja("pelaaja");
+        pelaaja = new Pelaaja();
 
     }
 
@@ -38,13 +38,7 @@ public class PelaajaTest {
         assertEquals(0, pelaaja.annaPelaajanPisteet());
     }
 
-    @Test
-    public void annaNimiToimiiOikein() {
-
-        assertEquals("pelaaja", pelaaja.annaPelaajaNimi());
-
-    }
-
+    
     @Test
     public void pisteidenKasvatusToimii() {
         pelaaja.kasvataPisteitä(2);

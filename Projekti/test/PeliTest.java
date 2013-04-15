@@ -22,16 +22,12 @@ public class PeliTest {
     public void setUp() {
     }
 
-    @Test
-    public void aloitusTeskstiToimii() {
-        Peli peli = new Peli();
-        assertEquals("tervetuloa pelin pariin!", peli.aloitusTeksti());
-    }
+   
 
     @Test
     public void luoPelilautaToimii() {
-        Pelaaja pelaaja = new Pelaaja("p");
-        Peli peli = new Peli();
+        Pelaaja pelaaja = new Pelaaja();
+        Peli peli = new Peli(pelaaja);
 
         int maara = peli.luoPelilauta(pelaaja).pelilaudanObjektienMaara();
 

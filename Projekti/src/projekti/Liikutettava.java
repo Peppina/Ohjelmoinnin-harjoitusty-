@@ -13,4 +13,6 @@ public interface Liikutettava {
     int haePaikkaX();
 
     int haePaikkaY();
+    
+    int haeKoko();
 }

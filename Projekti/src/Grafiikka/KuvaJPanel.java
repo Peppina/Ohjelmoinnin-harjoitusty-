@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import projekti.Liikutettava;
 import projekti.Pelilauta;
 
 public class KuvaJPanel extends JPanel {
@@ -59,27 +60,21 @@ public class KuvaJPanel extends JPanel {
 
 
         if (this.peli.annaPelinStatus() == 1) {
-
-
-            int x1 = peli.annaLiikutettavaListalta(0).haePaikkaX();
-            int y1 = peli.annaLiikutettavaListalta(0).haePaikkaY();
-
-            int x2 = peli.annaLiikutettavaListalta(1).haePaikkaX();
-            int y2 = peli.annaLiikutettavaListalta(1).haePaikkaY();
-
-            int x3 = peli.annaLiikutettavaListalta(2).haePaikkaX();
-            int y3 = peli.annaLiikutettavaListalta(2).haePaikkaY();
-
+            
             int pelaajaX = peli.annaPelaaja().annaPelaajanXPaikka();
             int pelaajaY = peli.annaPelaaja().annaPelaajanYPaikka();
+
 
             super.paintComponent(g);
             g.setColor(Color.BLUE);
             g.drawImage(this.tausta, 0, 0, 700, 500, null);
-            g.fillOval(x1, y1, 25, 25);
-            g.fillOval(x2, y2, 25, 25);
-            g.fillOval(x3, y3, 25, 25);
-
+            int i = 0;
+            while ( i < peli.pelilaudanObjektienMaara()){
+                Liikutettava l = peli.annaLiikutettavaListalta(i);
+                g.fillOval(l.haePaikkaX(),l.haePaikkaY(), l.haeKoko(), l.haeKoko());
+                i++;
+            }
+     
             g.setColor(Color.pink);
             g.fillOval(pelaajaX, pelaajaY, 25, 25);
 
@@ -93,6 +88,20 @@ public class KuvaJPanel extends JPanel {
             super.paintComponent(g);
             g.drawImage(this.loppukuvaVoitto, 0, 0, 700, 500, null);
             this.repaint();
+        }
+    }
+    
+    
+    public void piirraPallot(Graphics g){
+        int i = 0;
+        int pituus = peli.pelilaudanObjektienMaara();
+        
+        while(i < pituus ){
+            Liikutettava liikutettava = this.peli.annaLiikutettavaListalta(i);
+            super.paintComponent(g);
+            g.setColor(Color.BLUE);
+            g.fillOval(liikutettava.haePaikkaX(), liikutettava.haePaikkaY(), liikutettava.haeKoko(), liikutettava.haeKoko());
+            i++;
         }
     }
 }

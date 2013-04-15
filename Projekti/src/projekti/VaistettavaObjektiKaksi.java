@@ -1,11 +1,19 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package projekti;
 
-public class VaistettavaObjekti implements Liikutettava {
-
+/**
+ *
+ * @author papepa
+ */
+public class VaistettavaObjektiKaksi implements Liikutettava{
+    
     private int paikkaX;
     private int paikkaY;
     private boolean suunta;
-    final private int KAPPALEEN_NOPEUS = 10;
+    final private int KAPPALEEN_NOPEUS = 5;
     private int koko;
 
     /**
@@ -15,11 +23,11 @@ public class VaistettavaObjekti implements Liikutettava {
      * @param x
      * @param y
      */
-    public VaistettavaObjekti(int x, int y) {
+    public VaistettavaObjektiKaksi(int x, int y) {
         this.paikkaX = x;
         this.paikkaY = y;
         this.suunta = true;
-        this.koko = 25;
+        this.koko = 12;
 
     }
     
@@ -60,8 +68,7 @@ public class VaistettavaObjekti implements Liikutettava {
 
     @Override
     public int haeKoko() {
-       return this.koko;
+        return this.koko;
     }
-    
     
 }

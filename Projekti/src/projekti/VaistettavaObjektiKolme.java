@@ -1,8 +1,10 @@
+
 package projekti;
 
-public class VaistettavaObjekti implements Liikutettava {
 
-    private int paikkaX;
+public class VaistettavaObjektiKolme implements Liikutettava {
+    
+     private int paikkaX;
     private int paikkaY;
     private boolean suunta;
     final private int KAPPALEEN_NOPEUS = 10;
@@ -15,7 +17,7 @@ public class VaistettavaObjekti implements Liikutettava {
      * @param x
      * @param y
      */
-    public VaistettavaObjekti(int x, int y) {
+    public VaistettavaObjektiKolme(int x, int y) {
         this.paikkaX = x;
         this.paikkaY = y;
         this.suunta = true;
@@ -31,16 +33,16 @@ public class VaistettavaObjekti implements Liikutettava {
     public void liikuta() {
         
         if(this.suunta) {
-            if(paikkaY + KAPPALEEN_NOPEUS <= 475) {
-                paikkaY += KAPPALEEN_NOPEUS;
+            if(paikkaX + KAPPALEEN_NOPEUS <= 675) {
+                paikkaX += KAPPALEEN_NOPEUS;
             }
             else {
                 this.suunta = false;
             }
         }
         if(!this.suunta) {
-            if(paikkaY - KAPPALEEN_NOPEUS >= 0) {
-                paikkaY -= KAPPALEEN_NOPEUS;
+            if(paikkaX - KAPPALEEN_NOPEUS >= 0) {
+                paikkaX -= KAPPALEEN_NOPEUS;
             }
             else {
                 this.suunta = true;
@@ -60,8 +62,7 @@ public class VaistettavaObjekti implements Liikutettava {
 
     @Override
     public int haeKoko() {
-       return this.koko;
+        return this.koko;
     }
-    
     
 }

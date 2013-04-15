@@ -27,15 +27,23 @@ public class Peli {
      */
     public Pelilauta luoPelilauta(Pelaaja pelaaja) {
         Pelilauta uusiPelilauta = new Pelilauta(pelaaja);
-        int vaistettavienMaara = 3;
+        int vaistettavienMaara = 5;
         int i = 0;
 
         while (i < vaistettavienMaara) {
             Random arpo = new Random();
             int x = (arpo.nextInt(6) + 1) * 100;
             int y = arpo.nextInt(4) * 100;
+            int x2 = (arpo.nextInt(6) + 1) * 100;
+            int y2 = arpo.nextInt(4) * 100;
+            int x3 = (arpo.nextInt(6) + 1) * 100;
+            int y3 = arpo.nextInt(4) * 100;
             Liikutettava liikutettava = new VaistettavaObjekti(x, y);
+            Liikutettava liikutettava2 = new VaistettavaObjektiKaksi(x2, y2);
+            Liikutettava liikutettava3 = new VaistettavaObjektiKolme(x3, y3);
             uusiPelilauta.lisaaObjekti(liikutettava);
+            uusiPelilauta.lisaaObjekti(liikutettava2);
+            uusiPelilauta.lisaaObjekti(liikutettava3);
             i++;
         }
         return uusiPelilauta;

@@ -2,7 +2,6 @@ package projekti;
 
 public class Pelaaja {
 
-    private String nimi;
     private int pisteet;
     private int paikkaX;
     private int paikkaY;

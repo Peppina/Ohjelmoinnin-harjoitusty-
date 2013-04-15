@@ -1,12 +1,8 @@
 package projekti;
 
 import Grafiikka.KuvaJPanel;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 

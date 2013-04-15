@@ -1,6 +1,9 @@
 
 package projekti;
 
+import hahmot.Pelaaja;
+import logiikka.Peli;
+
 
 
 

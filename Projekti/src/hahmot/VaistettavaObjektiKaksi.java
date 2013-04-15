@@ -2,7 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package projekti;
+package hahmot;
+
+import hahmot.Liikutettava;
 
 /**
  *
@@ -32,7 +34,7 @@ public class VaistettavaObjektiKaksi implements Liikutettava{
     }
     
     /**
-     * Liikuta() metodi muuttaa olion paikkaa suunnasta ja apikasta pelilaudalla riippuen -10 tai +10 y-suunnassa
+     * Liikuta() metodi muuttaa olion paikkaa suunnasta ja paikasta pelilaudalla riippuen nopeuden ja suunnan mukaan y-suunnassa
      */
 
     @Override

@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import projekti.Pelaaja;
-import projekti.Peli;
+import hahmot.Pelaaja;
+import logiikka.Peli;
 
 /**
  *
@@ -31,7 +31,7 @@ public class PeliTest {
 
         int maara = peli.luoPelilauta(pelaaja).pelilaudanObjektienMaara();
 
-        assertEquals(3, maara);
+        assertEquals(15, maara);
 
     }
 }

@@ -1,4 +1,6 @@
-package projekti;
+package hahmot;
+
+import hahmot.Liikutettava;
 
 public class VaistettavaObjekti implements Liikutettava {
 

@@ -1,8 +1,15 @@
-package projekti;
+package logiikka;
 
+import logiikka.Pelilauta;
+import Kayttoliittyma.Kayttoliittyma;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import hahmot.Liikutettava;
+import hahmot.Pelaaja;
+import hahmot.VaistettavaObjekti;
+import hahmot.VaistettavaObjektiKaksi;
+import hahmot.VaistettavaObjektiKolme;
 
 public class Peli {
 

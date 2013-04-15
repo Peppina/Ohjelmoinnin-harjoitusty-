@@ -1,5 +1,7 @@
 
-package projekti;
+package hahmot;
+
+import hahmot.Liikutettava;
 
 
 public class VaistettavaObjektiKolme implements Liikutettava {
@@ -26,7 +28,7 @@ public class VaistettavaObjektiKolme implements Liikutettava {
     }
     
     /**
-     * Liikuta() metodi muuttaa olion paikkaa suunnasta ja apikasta pelilaudalla riippuen -10 tai +10 y-suunnassa
+     * Liikuta() metodi muuttaa olion paikkaa suunnasta ja paikasta pelilaudalla riippuen nopeuden ja suunan verran x-suunnassa
      */
 
     @Override

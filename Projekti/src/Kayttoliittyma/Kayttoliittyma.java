@@ -1,15 +1,20 @@
-package projekti;
+package Kayttoliittyma;
 
 import Grafiikka.KuvaJPanel;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import logiikka.Pelilauta;
 
 public class Kayttoliittyma {
 
     private JFrame frame;
     private Pelilauta lauta;
+    
+    /*
+     * käyttöliittymälle annetaan haluttu peli konstruktorissa
+     */
 
     public Kayttoliittyma(Pelilauta peli) {
         this.lauta = peli;

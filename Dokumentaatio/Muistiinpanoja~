@@ -1,5 +1,5 @@
 26.3.2013 Keksiviikko
  vaikeuksia grafiikan kanssa, taustakuva ja sen päälle liikkuvat objektit
 09.3.2013
- vaikeuksia näppäimistökuuntelijan kanssa, sain kuitenkin toimimaan, kun luin tarpeeksi ohjeita netistä
+ vaikeuksia näppäimistökuuntelijan kanssa, sain kuitenkin toimimaan, kun luin tarpeeksi ohjeita netistä. Testeissä jäänyt jälkeen, joten tein nyt luokkiin, joissa ei ollut ollenkaan testejä yksikkötestausta. Tuntuu melko tyhmältä tehdä testit jälkikäteen, kun niistä enemmän hyötyä tekovaiheessa.
 

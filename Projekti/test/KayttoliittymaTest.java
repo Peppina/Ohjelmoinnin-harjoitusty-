@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import projekti.Kayttoliittyma;
-import projekti.Pelaaja;
-import projekti.Pelilauta;
+import Kayttoliittyma.Kayttoliittyma;
+import hahmot.Pelaaja;
+import logiikka.Pelilauta;
 
 /**
  *

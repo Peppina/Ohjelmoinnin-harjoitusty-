@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import projekti.Pelaaja;
+import hahmot.Pelaaja;
 
 /**
  *
@@ -29,7 +29,7 @@ public class PelaajaTest {
     public void konstruktoriToimiiOikein() {
 
 
-        assertEquals("Pelaajan pelaaja pisteet: 0", pelaaja.toString());
+        assertEquals("Pelaajan pisteet: 0", pelaaja.toString());
 
     }
 
@@ -65,7 +65,7 @@ public class PelaajaTest {
     @Test
     public void toStringtoimiiOikein() {
 
-        assertEquals("Pelaajan pelaaja pisteet: 0", pelaaja.toString());
+        assertEquals("Pelaajan pisteet: 0", pelaaja.toString());
 
     }
 }

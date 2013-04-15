@@ -1,4 +1,4 @@
-package projekti;
+package hahmot;
 
 public class Pelaaja {
 
@@ -7,13 +7,13 @@ public class Pelaaja {
     private int paikkaY;
 
     /**
-     * konstruktorissa pelaajalle annetaan nimi. Aloituspaikka on keskellä
+     * Aloituspaikka on keskellä
      * pelilautaa y-suunassa ja x-suunnassa tietystipaikassa nolla. Pisteet on
      * lisätty pelaajalle mahdollisen jatkokehityksen varalle. Kun pelaaja voi
      * pelata esim useamman maan, jolloin hän saa jokaisesta suoritetusta
      * tasosta pisteitä.
      *
-     * @param annettuNimi
+     * @param 
      */
     public Pelaaja() {
 
@@ -93,6 +93,10 @@ public class Pelaaja {
             this.paikkaX = this.paikkaX + 50;
         }
     }
+    
+    /*
+     * metodilla liikutetaan x-suunassa lähemmäs x = 0 
+     */
 
     public void liikutaPelaajaaXsuunnassaTaakse() {
         this.paikkaX = this.paikkaX - 50;

@@ -9,10 +9,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import projekti.Liikutettava;
-import projekti.Pelaaja;
-import projekti.Pelilauta;
-import projekti.VaistettavaObjekti;
+import hahmot.Liikutettava;
+import hahmot.Pelaaja;
+import logiikka.Pelilauta;
+import hahmot.VaistettavaObjekti;
 
 /**
  *
@@ -37,7 +37,7 @@ public class PelilautaTest {
 
     @Test
     public void toimiikoLisausOikein() {
-        assertEquals("(1, 1)(1, 2)", pelilauta.annaObjektienPaikat());
+        assertEquals("1, 2", pelilauta.annaLiikutettavaListalta(1).haePaikkaX() + ", " + pelilauta.annaLiikutettavaListalta(1).haePaikkaY());
 
 
     }
@@ -45,15 +45,9 @@ public class PelilautaTest {
     @Test
     public void toimiikoPelilaudanLiikutusOikein() {
         pelilauta.liikutaPelilauttaaKerran();
-        assertEquals("(1, 11)(1, 12)", pelilauta.annaObjektienPaikat());
+        assertEquals("1, 12", pelilauta.annaLiikutettavaListalta(1).haePaikkaX() + ", " + pelilauta.annaLiikutettavaListalta(1).haePaikkaY());
     }
 
-    @Test
-    public void toimiikoKonstruktoriOikein() {
-        assertEquals("Laudalla on yksi pelaa: pelaaja ja laudan koko on 14*10.", pelilauta.toString());
-
-
-    }
 
     @Test
     public void liikutaPelaajaaToimiiOikeinYsuunnassa() {
@@ -69,14 +63,15 @@ public class PelilautaTest {
         this.pelilauta.liikutaPelaajaa(6);
         this.pelilauta.liikutaPelaajaa(6);
         this.pelilauta.liikutaPelaajaa(6);
+        this.pelilauta.liikutaPelaajaa(4);
 
-        assertEquals(150, this.pelilauta.annaPelaaja().annaPelaajanXPaikka());
+        assertEquals(100, this.pelilauta.annaPelaaja().annaPelaajanXPaikka());
     }
 
     @Test
     public void annapelaajaToimii() {
 
-        assertEquals("Pelaajan pelaaja pisteet: 0", this.pelilauta.annaPelaaja().toString());
+        assertEquals("Pelaajan pisteet: 0", this.pelilauta.annaPelaaja().toString());
     }
 
     @Test

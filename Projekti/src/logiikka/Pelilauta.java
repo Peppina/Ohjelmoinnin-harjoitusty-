@@ -1,7 +1,9 @@
-package projekti;
+package logiikka;
 
 
 import java.util.ArrayList;
+import hahmot.Liikutettava;
+import hahmot.Pelaaja;
 
 
 public class Pelilauta {
@@ -27,43 +29,40 @@ public class Pelilauta {
         return this.pelaaja;
     }
 
+    /*
+     * metodi lisaa liikutettavatObjektit listaan uuden Liikutettava rajapinnan toteuttavan olion
+     */
     public void lisaaObjekti(Liikutettava liikutettava) {
         this.liikutettavatObjektit.add(liikutettava);
     }
 
+    /*
+     * lista size() metodin avulla palauttaa Liikutettava rajapinnan toteuttavien olioden määrän pelilaudalla
+     */
     public int pelilaudanObjektienMaara() {
         return this.liikutettavatObjektit.size();
     }
-
+    
+    /*
+     * Metodi palauttaa pyydetyllä paikalla olevan Liikutettavan
+     */
+    
     public Liikutettava annaLiikutettavaListalta(int i) {
         return this.liikutettavatObjektit.get(i);
     }
+    
+    
     
     public int annaPelinStatus(){
         return this.kaynnissa;
     }
     
+    
     public void muutaPelinSatusta(int annettu){
         this.kaynnissa = annettu;
     }
-
-    public String annaObjektienPaikat() {
-        int i = 0;
-        int listanPituus = this.liikutettavatObjektit.size();
-        String palautus = "";
-
-        while (i < listanPituus) {
-
-            palautus = palautus + "(" + this.liikutettavatObjektit.get(i).haePaikkaX() + ", " + this.liikutettavatObjektit.get(i).haePaikkaY() + ")";
-            i++;
-        }
-
-        return palautus;
-    }
-
-    public void tulostaObjektienPaikat() {
-        System.out.println(this.annaObjektienPaikat());
-    }
+    
+ 
 
     //metodi vertaa törmäävätkö pelaaja ja laudalla olevat objektit, jos törmäys tapahtuu on palautusarvo true
     public boolean tuleekoTormaus() {
@@ -74,6 +73,10 @@ public class Pelilauta {
         }
         return false;
     }
+    
+    /*
+     * metodi liikuttaa jokaista pelilaudalla olevaa Liikutettava rajapinnan toteuttavaa oliota käyttäen olion omaa liikuta() metodia. Objektit siis liikkuvat niille määriteltyihin suuntiin niille määritellyillä nopeuksilla.
+     */
 
     public void liikutaPelilauttaaKerran() {
         int i = 0;
@@ -88,6 +91,10 @@ public class Pelilauta {
 
 
     }
+    
+    /*
+     * liikuttaa pelaajaa annettuun suuntaan
+     */
 
     public void liikutaPelaajaa(int i) {
 

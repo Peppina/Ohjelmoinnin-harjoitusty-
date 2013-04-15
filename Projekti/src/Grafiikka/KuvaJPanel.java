@@ -9,8 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import projekti.Liikutettava;
-import projekti.Pelilauta;
+import hahmot.Liikutettava;
+import logiikka.Pelilauta;
 
 public class KuvaJPanel extends JPanel {
 
@@ -20,7 +20,7 @@ public class KuvaJPanel extends JPanel {
     private Image loppukuvaVoitto;
 
     /**
-     * Jpanelin taustakuva konstruktorin parametrinä annettu peli
+     * Jpanelin taustakuva, konstruktorin parametrinä annettu peli
      *
      * @param peli
      * @throws IOException
@@ -51,6 +51,8 @@ public class KuvaJPanel extends JPanel {
     /**
      * piirtää liikutettavat pelialustaan, hakee paikat ArrayListista piirtää
      * myös pelaajan
+     * 
+     * lopputilanteessa piirtää ruudulle tilanteen mukaan joko häviö- tai voittoruudun
      *
      * @see projekti.Pelilauta
      * @param g
@@ -58,7 +60,7 @@ public class KuvaJPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
 
-
+        // status 1= peli kaynnissa, piirtää siis pelaajan ja liikutettavat taustakuvan päälle
         if (this.peli.annaPelinStatus() == 1) {
             
             int pelaajaX = peli.annaPelaaja().annaPelaajanXPaikka();
@@ -80,10 +82,13 @@ public class KuvaJPanel extends JPanel {
 
             this.repaint();
 
+        // status 2 = pelaaja törmää liikutettavaan, piirretään häviöruutu
         } else if (this.peli.annaPelinStatus() == 2) {
             super.paintComponent(g);
             g.drawImage(this.loppukuvaHavio, 0, 0, 700, 500, null);
             this.repaint();
+            
+        // status 3 = pelaaja pääsee loppuun, piirtää voittoruudun    
         } else if (this.peli.annaPelinStatus() == 3) {
             super.paintComponent(g);
             g.drawImage(this.loppukuvaVoitto, 0, 0, 700, 500, null);

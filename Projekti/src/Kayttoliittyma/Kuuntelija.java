@@ -2,10 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package projekti;
+package Kayttoliittyma;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import logiikka.Pelilauta;
 
 /**
  *
@@ -24,6 +25,7 @@ public class Kuuntelija implements KeyListener {
         this.peli = annettu;
     }
 
+    //reagoi vain painalluksiin, siksi ei metodia määritelty
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -46,12 +48,13 @@ public class Kuuntelija implements KeyListener {
         if (key == KeyEvent.VK_UP) {
             this.peli.liikutaPelaajaa(8);
         }
-        
-        if (key == KeyEvent.VK_LEFT){
+
+        if (key == KeyEvent.VK_LEFT) {
             this.peli.liikutaPelaajaa(4);
-            
+
         }
     }
+    //reagoi vain painalluksiin, siksi ei metodia määritelty
 
     @Override
     public void keyReleased(KeyEvent e) {

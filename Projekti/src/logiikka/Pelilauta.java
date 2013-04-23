@@ -1,9 +1,9 @@
 package logiikka;
 
 
-import java.util.ArrayList;
 import hahmot.Liikutettava;
 import hahmot.Pelaaja;
+import java.util.ArrayList;
 
 
 public class Pelilauta {
@@ -20,7 +20,7 @@ public class Pelilauta {
      */
 
     public Pelilauta(Pelaaja annettuPelaaja) {
-        this.liikutettavatObjektit = new ArrayList<Liikutettava>();
+        this.liikutettavatObjektit = new ArrayList<>();
         this.korkeus = 500;
         this.leveys = 700;
         this.pelaaja = annettuPelaaja;

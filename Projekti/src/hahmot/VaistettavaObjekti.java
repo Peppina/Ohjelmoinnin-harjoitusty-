@@ -1,7 +1,5 @@
 package hahmot;
 
-import hahmot.Liikutettava;
-
 public class VaistettavaObjekti implements Liikutettava {
 
     private int paikkaX;

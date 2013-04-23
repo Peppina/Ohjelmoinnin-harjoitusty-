@@ -1,0 +1,17 @@
+Pakkaus Grafiikka:
+sis luokan KuvaJPanel, piirtää pelilaudalle käyttöliittymässä pelilaudalla olevat oliot sekä taustakuvan
+
+Pakkaus Käyttöliittymä
+sis luokat Käyttöliittymä ja Kuuntelija
+Käyttöliittymä käyttää Kuuntelijaa näppäimistön syötteiden lukemiseen eli pelaajan liikuttamiseksi
+Kuuntelija kuuntelee näppäimistöltä annetut ksäkyt pelaajalle.
+
+Pakkaus hahmot
+sis luokat Pelaaja ja VaistettavaObjekti. Mysö rajapinnan Liikutettava. vaistettavaObjekti-luokka toteuttaa liikutettava-rajapinnan. rajapinta mahdollistaa myös jatkossa erilaisten liikutettavien objektien lisäämisen pelikentälle. Pelaaja ja vaistettavaobjektiluokalla keskeisin ominaisuus on niiden tietoisuus omasta paikastaan pelilaudalla eli x- ja y-kordinaatit.
+
+Pakkaus logiikka
+sis luokat Pelilauta ja Peli.
+Pelilauta on tietoinen mm sillä liikkuvasta pelaajasta sekä sillä olevista Liikutettava-rajapinnan toteuttavista objekteista. objektit on tallennettuna luokan sisäiseen arraylistiin. pelilaudan täerkein metodi on pelilaudan liikutus, jolloin objektit liikkuvat nille määriteltyihin suuntiin määritellyillä nopeuksilla. Peli-luokka luo mm uuden pelilaudan ja pelaaja. peli-luokasta käynnistetään pelin pelaaminen.
+
+
+

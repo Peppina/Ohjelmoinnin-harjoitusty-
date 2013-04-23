@@ -1,0 +1,9 @@
+Testaus
+
+Testauksen kanssa projektin myötä tuli huomattua tosiaan testien tekemisen hyöty ohjelmoinnissa ja sen hyödyttömyys kun sen tekee jälkikäteen valmiista koodista.
+
+Testit on nyt tehty hahmot- ja loogiikkapakkauksten luokista, sillä grafiikan ja käyttiksen testaaminen unit testeillä olisi ollut työlästä ja myös tämän kaltaisessa projektissa melko turhaa. Grafiikka ja käyttöliittymä todistetusti toimivat odotetulla tavalla, kun ohjelman ajaa.
+
+Jatkossa tulen (ainakin yritän) tehdä testejä enemmän ennen varsinaista koodausta/sen yhteydessä.
+
+

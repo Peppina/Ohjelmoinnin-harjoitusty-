@@ -4,5 +4,10 @@
  	Vaikeuksia näppäimistökuuntelijan kanssa, sain kuitenkin toimimaan, kun luin tarpeeksi ohjeita netistä. Testeissä jäänyt jälkeen, joten tein nyt luokkiin, joissa ei ollut ollenkaan testejä yksikkötestausta. Tuntuu melko tyhmältä tehdä testit jälkikäteen, kun niistä enemmän hyötyä tekovaiheessa.
 14.3.2013
 	peli alkaa näyttää kivemmalta ja toimii jo. Nyt pitäisi vielä tehdä pikku viilausta 
+
+
+Tominnallisuuden kanssa alkuun oma tarkaisu oli Timeri, koska en ollut ennen ohjelmoinut minkään tyyppistä peliä. Näytin omaa ratkaisuani kaverille, jolla enemmän ohjelmointikokemusta ja vihjasi tarkistamaan toiminnan peliloopilla. Nyt toimii mukavasti ja ylimääräisestä timer ja timertask luokasta pääsin eroon
+
+
 	
 

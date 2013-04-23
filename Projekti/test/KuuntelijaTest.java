@@ -3,17 +3,11 @@
  * and open the template in the editor.
  */
 
-import java.awt.event.KeyEvent;
-import javax.xml.soap.Text;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import Kayttoliittyma.Kuuntelija;
 import hahmot.Pelaaja;
 import logiikka.Pelilauta;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *

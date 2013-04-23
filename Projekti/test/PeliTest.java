@@ -11,27 +11,45 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import hahmot.Pelaaja;
 import logiikka.Peli;
+import logiikka.Pelilauta;
 
 /**
  *
  * @author papepa
  */
 public class PeliTest {
+    
+    private Peli peli;
+    private Pelaaja pelaaja;
 
     @Before
     public void setUp() {
+        this.pelaaja = new Pelaaja();
+        this.peli = new Peli(pelaaja);
     }
 
    
 
     @Test
     public void luoPelilautaToimii() {
-        Pelaaja pelaaja = new Pelaaja();
-        Peli peli = new Peli(pelaaja);
+        
 
-        int maara = peli.luoPelilauta(pelaaja).pelilaudanObjektienMaara();
+        int maara = this.peli.luoPelilauta(this.pelaaja).pelilaudanObjektienMaara();
 
         assertEquals(15, maara);
 
     }
+    
+    @Test
+    public void lisaaVaistettava(){
+        Pelilauta pelilauta = new Pelilauta(new Pelaaja());
+        peli.lisaaVaistettavat(3, pelilauta);
+       
+        assertEquals(9, pelilauta.pelilaudanObjektienMaara());
+    }
+    
+    
+    
+    
+   
 }

@@ -21,6 +21,7 @@ public class KuvaJPanel extends JPanel {
 
     /**
      * Jpanelin taustakuva, konstruktorin parametrinä annettu peli
+     * luokka piirtää pelilaudan (ja siinä olevat vaistettavat objektit sekä pelaajan)
      *
      * @param peli
      * @throws IOException
@@ -51,8 +52,9 @@ public class KuvaJPanel extends JPanel {
     /**
      * piirtää liikutettavat pelialustaan, hakee paikat ArrayListista piirtää
      * myös pelaajan
-     * 
-     * lopputilanteessa piirtää ruudulle tilanteen mukaan joko häviö- tai voittoruudun
+     *
+     * lopputilanteessa piirtää ruudulle tilanteen mukaan joko häviö- tai
+     * voittoruudun
      *
      * @see projekti.Pelilauta
      * @param g
@@ -62,51 +64,48 @@ public class KuvaJPanel extends JPanel {
 
         // status 1= peli kaynnissa, piirtää siis pelaajan ja liikutettavat taustakuvan päälle
         if (this.peli.annaPelinStatus() == 1) {
-            
-            int pelaajaX = peli.annaPelaaja().annaPelaajanXPaikka();
-            int pelaajaY = peli.annaPelaaja().annaPelaajanYPaikka();
-
-
-            super.paintComponent(g);
-            g.setColor(Color.BLUE);
-            g.drawImage(this.tausta, 0, 0, 700, 500, null);
-            int i = 0;
-            while ( i < peli.pelilaudanObjektienMaara()){
-                Liikutettava l = peli.annaLiikutettavaListalta(i);
-                g.fillOval(l.haePaikkaX(),l.haePaikkaY(), l.haeKoko(), l.haeKoko());
-                i++;
-            }
-     
-            g.setColor(Color.pink);
-            g.fillOval(pelaajaX, pelaajaY, 25, 25);
-
-            this.repaint();
-
-        // status 2 = pelaaja törmää liikutettavaan, piirretään häviöruutu
+            pelinStatusYksi(g);
+            // status 2 = pelaaja törmää liikutettavaan, piirretään häviöruutu
         } else if (this.peli.annaPelinStatus() == 2) {
-            super.paintComponent(g);
-            g.drawImage(this.loppukuvaHavio, 0, 0, 700, 500, null);
-            this.repaint();
-            
-        // status 3 = pelaaja pääsee loppuun, piirtää voittoruudun    
+            pelinStatusKaksi(g);
+            // status 3 = pelaaja pääsee loppuun, piirtää voittoruudun
         } else if (this.peli.annaPelinStatus() == 3) {
-            super.paintComponent(g);
-            g.drawImage(this.loppukuvaVoitto, 0, 0, 700, 500, null);
-            this.repaint();
+            pelinStatusKolme(g);
         }
     }
-    
-    
-    public void piirraPallot(Graphics g){
+
+    private void pelinStatusYksi(Graphics g) {
+        int pelaajaX = peli.annaPelaaja().annaPelaajanXPaikka();
+        int pelaajaY = peli.annaPelaaja().annaPelaajanYPaikka();
+
+
+        super.paintComponent(g);
+        g.setColor(Color.BLUE);
+        g.drawImage(this.tausta, 0, 0, 700, 500, null);
         int i = 0;
-        int pituus = peli.pelilaudanObjektienMaara();
-        
-        while(i < pituus ){
-            Liikutettava liikutettava = this.peli.annaLiikutettavaListalta(i);
-            super.paintComponent(g);
-            g.setColor(Color.BLUE);
-            g.fillOval(liikutettava.haePaikkaX(), liikutettava.haePaikkaY(), liikutettava.haeKoko(), liikutettava.haeKoko());
+        while (i < peli.pelilaudanObjektienMaara()) {
+            Liikutettava l = peli.annaLiikutettavaListalta(i);
+            g.fillOval(l.haePaikkaX(), l.haePaikkaY(), l.haeKoko(), l.haeKoko());
             i++;
         }
+
+        g.setColor(Color.pink);
+        g.fillOval(pelaajaX, pelaajaY, 25, 25);
+
+        this.repaint();
     }
+
+    private void pelinStatusKaksi(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(this.loppukuvaHavio, 0, 0, 700, 500, null);
+        this.repaint();
+    }
+
+    private void pelinStatusKolme(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(this.loppukuvaVoitto, 0, 0, 700, 500, null);
+        this.repaint();
+    }
+
+   
 }

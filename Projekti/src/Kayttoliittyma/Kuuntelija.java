@@ -17,7 +17,8 @@ public class Kuuntelija implements KeyListener {
     private Pelilauta peli;
 
     /**
-     * Kuuntelijan konstruktori, parametrina annetun pelilaudan liikuttamiseksi
+     * Kuuntelijan konstruktori, parametrina annetun pelilaudan liikuttamiseksi,
+     * Kuuntelee näpäimistöllä annettuja käskys, tunnistaa nuolinäppäimet
      *
      * @param annettu
      */

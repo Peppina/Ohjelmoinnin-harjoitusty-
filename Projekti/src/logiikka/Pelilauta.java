@@ -7,12 +7,17 @@ import hahmot.Pelaaja;
 
 
 public class Pelilauta {
+    
 
     private ArrayList<Liikutettava> liikutettavatObjektit;
     private int korkeus;
     private int leveys;
     private Pelaaja pelaaja;
     private int kaynnissa;
+    
+    /*
+     * Pelilaudalla vakio koko. Lisäksi pelilauta tuntee sillä liikkuvat Liikutettava-rajapinnan toteuttavat oliot, jotka tallennetaan ArrayListiin. Lauta tuntee myös sillä liikkuvan pelaajan ja tietää oman statuksensa(esim käynnissä tai päättynyt törmäykseen jne.) Jos peliä haluaa kehittää, on helppo lisätä erilaisia statuksia ja näille erilaisia näyttöjä Grafiikassa.
+     */
 
     public Pelilauta(Pelaaja annettuPelaaja) {
         this.liikutettavatObjektit = new ArrayList<Liikutettava>();
@@ -52,10 +57,17 @@ public class Pelilauta {
     }
     
     
-    
+    /*
+     * kertoo pelin tilan
+     */
     public int annaPelinStatus(){
         return this.kaynnissa;
     }
+    
+    
+    /*
+     * muuttaa pelin statusta, apumetodi
+     */
     
     
     public void muutaPelinSatusta(int annettu){

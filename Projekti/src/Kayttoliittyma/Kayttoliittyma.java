@@ -14,6 +14,7 @@ public class Kayttoliittyma {
     
     /*
      * käyttöliittymälle annetaan haluttu peli konstruktorissa
+     * luo käyttöliittymäkomponentit ja rakentaa pelialustan
      */
 
     public Kayttoliittyma(Pelilauta peli) {
